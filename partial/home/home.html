@@ -1,7 +1,17 @@
-  Home Page is displaying
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/app.less">
+  </head>
+  <body>
+  <h1> Home Page is displaying </h1>
 
-  <div ng-repeat = "repo in repos">
-    Name = {{ repo.name }}
-    URL = {{ repo.url }}
-    Comments = {{ repo.comments }}
+  <div class="container" >
+    <div class="row well" data-ng-repeat = "repo in repos">
+      Name = {{ repo.name }}
+      URL = {{ repo.url }}
+      Comments = {{ repo.comments }}
+    </div>
   </div>
+  </body>
+</html>

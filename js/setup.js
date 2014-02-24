@@ -4,7 +4,11 @@ angular.module('sourceanno').config(function($routeProvider) {
 
     $routeProvider.
     /* Add New Routes Above */
-    otherwise({redirectTo:'/home'});
+    when('/', {
+        templateUrl: 'partial/home/home.html',
+        controller: 'HomeCtrl' // This is a constructor, which usually have CamelCase  notation
+    })
+    .otherwise({redirectTo:'/home'});
 
 });
 

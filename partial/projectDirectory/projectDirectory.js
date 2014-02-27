@@ -2,4 +2,4 @@ angular.module("sourceanno").controller( 'ProjectDirectoryCtrl', function ($scop
     $scope.message = "We're here";
     $scope.urlname = $location.url();
 
-})
+});

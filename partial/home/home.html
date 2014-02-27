@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" type="text/css" href="css/app.less">
-  </head>
-  <body>
-  <h1> Home Page is displaying </h1>
+<h1> Home Page is displaying </h1>
 
-  <div class="container" >
-    <div class="row well" data-ng-repeat = "repo in repos">
-      Name = {{ repo.name }}
-      URL = {{ repo.url }}
-      Comments = {{ repo.comments }}
+<div class="container">
+  <div class="row" data-ng-repeat = "repo in repos">
+    <div class="col-md-offset-4 col-md-4 well">
+      <a href="#/projects/{{repo.name}}">
+        Name = {{ repo.name }}
+      </a>
+    URL = {{ repo.url }}
+    Comments = {{ repo.comments }}
     </div>
   </div>
-  </body>
-</html>
+</div>

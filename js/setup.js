@@ -2,11 +2,15 @@ angular.module('sourceanno', ['ui.bootstrap','ui.utils','ngRoute','ngAnimate']);
 
 angular.module('sourceanno').config(function($routeProvider) {
 
-    $routeProvider.
+    $routeProvider
     /* Add New Routes Above */
-    when('/', {
+    .when('/', {
         templateUrl: 'partial/home/home.html',
         controller: 'HomeCtrl' // This is a constructor, which usually have CamelCase  notation
+    })
+    .when('/projects/:name', {
+        templateUrl: 'partial/projectDirectory/projectDirectory.html',
+        controller: 'ProjectDirectoryCtrl'
     })
     .otherwise({redirectTo:'/home'});
 

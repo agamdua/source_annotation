@@ -8,6 +8,12 @@ angular.module('sourceanno').factory('Repo',function() {
 				{ name: 'repo3', comments:150, url:'url3'},
 				{ name: 'repo4', comments:172, url:'url3'}
 			];
+		},
+
+		get: function ( username, name ) {
+			return [
+				'outerDirectory', 'innerOne', 'innerOne1', 'innerOne2', 'innerTwo', 'innerTwo1'
+			];
 		}
 	};
 

@@ -4,3 +4,9 @@ Hello, we're in the project dir partial
   {{message}}
   {{ urlname }}
 </p>
+
+<table class='table table-bordered'>
+	<tr ng-repeat='folder in folders' ng-class='{ "even-color":$index%2, "odd-color":!$index%2 }'>
+		<td> {{ folder }} </td>
+	</tr>
+</table>

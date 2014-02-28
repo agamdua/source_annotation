@@ -1,0 +1,52 @@
+This article assumes basic familiarity with the with the concepts discussed in the AngularJS tutorial and basic JavaScript, however links to the docs will be found in appropriate places inline.
+
+[ngRepeat](http://docs.angularjs.org/api/ng/directive/ngRepeat) is one of the most powerful directives that come bundled with AngularJS. It is most commonly used as a way to populate data in a loop from the API on the page.
+
+A simple example is illustrated below:
+
+https://gist.github.com/agamdua/9252384
+
+Here is the full plunkr (http://plnkr.co/edit/V364ffiFl8EJpjgb7YsX?p=preview)
+
+Coming to the claim about it being powerful, its probably best to have a look at the source code.
+
+```javascript
+var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
+  var NG_REMOVED = '$$NG_REMOVED';
+  var ngRepeatMinErr = minErr('ngRepeat');
+```
+
+This is standard syntax for beginning the creation of a directive in angular. As we can see, the dependency injection is used in a minification safe manner, with the services $parse & $animate being passed as arguments.
+
+In lines 2 & 3, we are assigning values to the variables, in the scope of the ngRepeatDirective.
+
+```javascript
+  return {
+    transclude: 'element',
+    priority: 1000,
+    terminal: true,
+    $$tlb: true,
+    link: function($scope, $element, $attr, ctrl, $transclude){
+        var expression = $attr.ngRepeat;
+        var match = expression.match(/^\s*([\s\S]+?)\s+in\s+([\s\S]+?)(?:\s+track\s+by\s+([\s\S]+?))?\s*$/),
+          trackByExp, trackByExpGetter, trackByIdExpFn, trackByIdArrayFn, trackByIdObjFn,
+          lhs, rhs, valueIdentifier, keyIdentifier,
+          hashFnLocals = {$id: hashKey};
+```
+
+#### Transclude:
+What does this transclude option do, exactly? transclude makes the contents of a directive with this option 
+have access to the scope outside of the directive rather than inside.
+
+[??] terminal & priority not in directive docs
+
+#### $$tlb
+Issue [#4357](https://github.com/angular/angular.js/issues/4357), [#6042](https://github.com/angular/angular.js/issues/6042)
+It was added in [this commit](https://github.com/btford/angular.js/commit/becd7f9caea94597f8e09da037eaeed799c718d2)
+
+#### link:
+Directives that want to modify the DOM typically use the link option. link takes a function with the following signature, function link(scope, element, attrs) { ... } where:
+ - scope is an Angular scope object.
+ - element is the jqLite-wrapped element that this directive matches.
+ - attrs is a hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
+

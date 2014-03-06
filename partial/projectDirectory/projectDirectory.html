@@ -1,12 +1,9 @@
-Hello, we're in the project dir partial
-
-<p> 
-  {{message}}
-  {{ urlname }}
-</p>
+<p>Hello, we're in the project dir partial </p>
+<p>This is the url we are at:  {{ urlname }} </p>
 
 <table class='table table-bordered'>
-	<tr ng-repeat='folder in folders' ng-class='{ "even-color":$index%2, "odd-color":!$index%2 }'>
-		<td> {{ folder }} </td>
-	</tr>
+	<tr ng-repeat='item in items' ng-class='{ "even-color":$index%2, "odd-color":!$index%2 }'>
+		<td> {{ item.name }} </td>
+		<td> {{ item.type }} </td>
+		</tr>
 </table>
